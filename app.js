@@ -6,8 +6,17 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var mongoose = require('mongoose');
+
 
 var app = express();
+
+mongoose.connect('mongodb://localhost/parcial2');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("conectado a DB");
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
