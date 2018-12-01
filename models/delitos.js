@@ -5,4 +5,4 @@ var delito= new mongoose.Schema({
     cantidad:{type:Number, required:true}
 });
 
-module.exports = mongoose.Schema("delito",delito)
+module.exports = mongoose.model("delito",delito)
